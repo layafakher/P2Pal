@@ -47,7 +47,7 @@ MainWindow::MainWindow(QWidget *parent)
     antiEntropyTimer->start(5000);
 }
 void MainWindow::runAntiEntropy() {
-    qDebug() << "🔄 Running Anti-Entropy from MainWindow...";
+    qDebug() << "Running Anti-Entropy from MainWindow...";
     network->runAntiEntropy();
 }
 
@@ -93,7 +93,7 @@ void MainWindow::runGossipProtocol() {
 #include <QTimer>
 
 void MainWindow::addPeer() {
-    qDebug() << "🔍 Running peer discovery before manual entry...";
+    qDebug() << "Running peer discovery before manual entry...";
 
     network->broadcastDiscovery();
 
@@ -103,8 +103,8 @@ void MainWindow::addPeer() {
     loop.exec();
 
     if (!peers.isEmpty()) {
-        chatLog->append("✅ Auto-discovered peers: " + QString::number(peers.size()));
-        qDebug() << "✅ Auto-discovered peers, skipping manual entry.";
+        chatLog->append("Auto-discovered peers: " + QString::number(peers.size()));
+        qDebug() << "Auto-discovered peers, skipping manual entry.";
         return;
     }
 
@@ -115,7 +115,7 @@ void MainWindow::addPeer() {
                                                 QLineEdit::Normal, "", &ok);
     if (ok && !peerAddress.isEmpty()) {
         peers.insert(QHostAddress(peerAddress));
-        chatLog->append("📥 Manually added peer: " + peerAddress);
+        chatLog->append("Manually added peer: " + peerAddress);
     }
 }
 
