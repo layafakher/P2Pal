@@ -1,0 +1,321 @@
+
+---
+events:
+  -
+    kind: "message-v1"
+    backtrace:
+      - "E:/qt/Tools/CMake_64/share/cmake-3.29/Modules/CMakeDetermineSystem.cmake:205 (message)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      The system is: Windows - 10.0.26100 - AMD64
+  -
+    kind: "message-v1"
+    backtrace:
+      - "E:/qt/Tools/CMake_64/share/cmake-3.29/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "E:/qt/Tools/CMake_64/share/cmake-3.29/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "E:/qt/Tools/CMake_64/share/cmake-3.29/Modules/CMakeDetermineCXXCompiler.cmake:126 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+      Compiler: E:/qt/Tools/llvm-mingw1706_64/bin/clang++.exe 
+      Build flags: -DQT_QML_DEBUG
+      Id flags:  
+      
+      The output was:
+      0
+      
+      
+      Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.exe"
+      
+      The CXX compiler identification is Clang, found in:
+        D:/IIT/Advanced OS/New folder/P2Pal/build/Desktop_Qt_6_9_0_llvm_mingw_64_bit-Debug/CMakeFiles/3.29.3/CompilerIdCXX/a.exe
+      
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "E:/qt/Tools/CMake_64/share/cmake-3.29/Modules/CMakeDetermineCompilerABI.cmake:67 (try_compile)"
+      - "E:/qt/Tools/CMake_64/share/cmake-3.29/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    checks:
+      - "Detecting CXX compiler ABI info"
+    directories:
+      source: "D:/IIT/Advanced OS/New folder/P2Pal/build/Desktop_Qt_6_9_0_llvm_mingw_64_bit-Debug/CMakeFiles/CMakeScratch/TryCompile-rcefgx"
+      binary: "D:/IIT/Advanced OS/New folder/P2Pal/build/Desktop_Qt_6_9_0_llvm_mingw_64_bit-Debug/CMakeFiles/CMakeScratch/TryCompile-rcefgx"
+    cmakeVariables:
+      CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS: "CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS-NOTFOUND"
+      CMAKE_CXX_FLAGS: "-DQT_QML_DEBUG"
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_CXX_SCAN_FOR_MODULES: "OFF"
+      CMAKE_EXE_LINKER_FLAGS: ""
+    buildResult:
+      variable: "CMAKE_CXX_ABI_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: 'D:/IIT/Advanced OS/New folder/P2Pal/build/Desktop_Qt_6_9_0_llvm_mingw_64_bit-Debug/CMakeFiles/CMakeScratch/TryCompile-rcefgx'
+        
+        Run Build Command(s): E:/qt/Tools/Ninja/ninja.exe -v cmTC_f653d
+        [1/2] E:\\qt\\Tools\\llvm-mingw1706_64\\bin\\clang++.exe   -DQT_QML_DEBUG    -v -MD -MT CMakeFiles/cmTC_f653d.dir/CMakeCXXCompilerABI.cpp.obj -MF CMakeFiles\\cmTC_f653d.dir\\CMakeCXXCompilerABI.cpp.obj.d -o CMakeFiles/cmTC_f653d.dir/CMakeCXXCompilerABI.cpp.obj -c E:/qt/Tools/CMake_64/share/cmake-3.29/Modules/CMakeCXXCompilerABI.cpp
+        clang version 17.0.6 (https://github.com/llvm/llvm-project.git 6009708b4367171ccdbf4b5905cb6a803753fe18)
+        Target: x86_64-w64-windows-gnu
+        Thread model: posix
+        InstalledDir: E:/qt/Tools/llvm-mingw1706_64/bin
+         (in-process)
+         "E:/qt/Tools/llvm-mingw1706_64/bin/clang-17.exe" -cc1 -triple x86_64-w64-windows-gnu -emit-obj -mrelax-all -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name CMakeCXXCompilerABI.cpp -mrelocation-model pic -pic-level 2 -mframe-pointer=none -fmath-errno -ffp-contract=on -fno-rounding-math -mconstructor-aliases -mms-bitfields -funwind-tables=2 -fno-use-init-array -target-cpu x86-64 -tune-cpu generic -debugger-tuning=gdb -v "-fcoverage-compilation-dir=D:/IIT/Advanced OS/New folder/P2Pal/build/Desktop_Qt_6_9_0_llvm_mingw_64_bit-Debug/CMakeFiles/CMakeScratch/TryCompile-rcefgx" -resource-dir E:/qt/Tools/llvm-mingw1706_64/lib/clang/17 -dependency-file "CMakeFiles\\\\cmTC_f653d.dir\\\\CMakeCXXCompilerABI.cpp.obj.d" -MT CMakeFiles/cmTC_f653d.dir/CMakeCXXCompilerABI.cpp.obj -sys-header-deps -D QT_QML_DEBUG -internal-isystem E:/qt/Tools/llvm-mingw1706_64/x86_64-w64-mingw32/include/c++/v1 -internal-isystem E:/qt/Tools/llvm-mingw1706_64/include/c++/v1 -internal-isystem E:/qt/Tools/llvm-mingw1706_64/lib/clang/17/include -internal-isystem E:/qt/Tools/llvm-mingw1706_64/x86_64-w64-mingw32/include -internal-isystem E:/qt/Tools/llvm-mingw1706_64/x86_64-w64-mingw32/usr/include -internal-isystem E:/qt/Tools/llvm-mingw1706_64/include -fdeprecated-macro "-fdebug-compilation-dir=D:/IIT/Advanced OS/New folder/P2Pal/build/Desktop_Qt_6_9_0_llvm_mingw_64_bit-Debug/CMakeFiles/CMakeScratch/TryCompile-rcefgx" -ferror-limit 19 -fno-use-cxa-atexit -fgnuc-version=4.2.1 -fcxx-exceptions -fexceptions -exception-model=seh -faddrsig -o CMakeFiles/cmTC_f653d.dir/CMakeCXXCompilerABI.cpp.obj -x c++ E:/qt/Tools/CMake_64/share/cmake-3.29/Modules/CMakeCXXCompilerABI.cpp
+        clang -cc1 version 17.0.6 based upon LLVM 17.0.6 default target x86_64-w64-mingw32
+        ignoring nonexistent directory "E:/qt/Tools/llvm-mingw1706_64/x86_64-w64-mingw32/include/c++/v1"\x0d
+        ignoring nonexistent directory "E:/qt/Tools/llvm-mingw1706_64/x86_64-w64-mingw32/include"\x0d
+        ignoring nonexistent directory "E:/qt/Tools/llvm-mingw1706_64/x86_64-w64-mingw32/usr/include"\x0d
+        #include "..." search starts here:\x0d
+        #include <...> search starts here:\x0d
+         E:/qt/Tools/llvm-mingw1706_64/include/c++/v1\x0d
+         E:/qt/Tools/llvm-mingw1706_64/lib/clang/17/include\x0d
+         E:/qt/Tools/llvm-mingw1706_64/include\x0d
+        End of search list.\x0d
+        [2/2] C:\\WINDOWS\\system32\\cmd.exe /C "cd . && E:\\qt\\Tools\\llvm-mingw1706_64\\bin\\clang++.exe -DQT_QML_DEBUG -v -Wl,-v CMakeFiles/cmTC_f653d.dir/CMakeCXXCompilerABI.cpp.obj -o cmTC_f653d.exe -Wl,--out-implib,libcmTC_f653d.dll.a -Wl,--major-image-version,0,--minor-image-version,0   && cd ."
+        clang version 17.0.6 (https://github.com/llvm/llvm-project.git 6009708b4367171ccdbf4b5905cb6a803753fe18)
+        Target: x86_64-w64-windows-gnu
+        Thread model: posix
+        InstalledDir: E:/qt/Tools/llvm-mingw1706_64/bin
+         "E:/qt/Tools/llvm-mingw1706_64/bin/ld.lld" -m i386pep -Bdynamic -o cmTC_f653d.exe E:/qt/Tools/llvm-mingw1706_64/x86_64-w64-mingw32/lib/crt2.o E:/qt/Tools/llvm-mingw1706_64/x86_64-w64-mingw32/lib/crtbegin.o -LE:/qt/Tools/llvm-mingw1706_64/x86_64-w64-mingw32/lib -LE:/qt/Tools/llvm-mingw1706_64/x86_64-w64-mingw32/mingw/lib -LE:/qt/Tools/llvm-mingw1706_64/lib -LE:/qt/Tools/llvm-mingw1706_64/lib/clang/17/lib/windows -v CMakeFiles/cmTC_f653d.dir/CMakeCXXCompilerABI.cpp.obj --out-implib libcmTC_f653d.dll.a --major-image-version 0 --minor-image-version 0 -lc++ -lmingw32 E:/qt/Tools/llvm-mingw1706_64/lib/clang/17/lib/windows/libclang_rt.builtins-x86_64.a -lunwind -lmoldname -lmingwex -lmsvcrt -ladvapi32 -lshell32 -luser32 -lkernel32 -lmingw32 E:/qt/Tools/llvm-mingw1706_64/lib/clang/17/lib/windows/libclang_rt.builtins-x86_64.a -lunwind -lmoldname -lmingwex -lmsvcrt -lkernel32 E:/qt/Tools/llvm-mingw1706_64/x86_64-w64-mingw32/lib/crtend.o\x0d
+        LLD 17.0.6 (compatible with GNU linkers)
+        
+      exitCode: 0
+  -
+    kind: "message-v1"
+    backtrace:
+      - "E:/qt/Tools/CMake_64/share/cmake-3.29/Modules/CMakeDetermineCompilerABI.cmake:137 (message)"
+      - "E:/qt/Tools/CMake_64/share/cmake-3.29/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Parsed CXX implicit include dir info: rv=done
+        found start of include info
+        found start of implicit include info
+          add: [E:/qt/Tools/llvm-mingw1706_64/include/c++/v1]
+          add: [E:/qt/Tools/llvm-mingw1706_64/lib/clang/17/include]
+          add: [E:/qt/Tools/llvm-mingw1706_64/include]
+        end of search list found
+        collapse include dir [E:/qt/Tools/llvm-mingw1706_64/include/c++/v1] ==> [E:/qt/Tools/llvm-mingw1706_64/include/c++/v1]
+        collapse include dir [E:/qt/Tools/llvm-mingw1706_64/lib/clang/17/include] ==> [E:/qt/Tools/llvm-mingw1706_64/lib/clang/17/include]
+        collapse include dir [E:/qt/Tools/llvm-mingw1706_64/include] ==> [E:/qt/Tools/llvm-mingw1706_64/include]
+        implicit include dirs: [E:/qt/Tools/llvm-mingw1706_64/include/c++/v1;E:/qt/Tools/llvm-mingw1706_64/lib/clang/17/include;E:/qt/Tools/llvm-mingw1706_64/include]
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "E:/qt/Tools/CMake_64/share/cmake-3.29/Modules/CMakeDetermineCompilerABI.cmake:173 (message)"
+      - "E:/qt/Tools/CMake_64/share/cmake-3.29/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Parsed CXX implicit link information:
+        link line regex: [^( *|.*[/\\])(ld[0-9]*(\\.[a-z]+)?|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
+        linker tool regex: [^[ 	]*(->|")?[ 	]*(([^"]*[/\\])?(ld[0-9]*(\\.[a-z]+)?))("|,| |$)]
+        ignore line: [Change Dir: 'D:/IIT/Advanced OS/New folder/P2Pal/build/Desktop_Qt_6_9_0_llvm_mingw_64_bit-Debug/CMakeFiles/CMakeScratch/TryCompile-rcefgx']
+        ignore line: []
+        ignore line: [Run Build Command(s): E:/qt/Tools/Ninja/ninja.exe -v cmTC_f653d]
+        ignore line: [[1/2] E:\\qt\\Tools\\llvm-mingw1706_64\\bin\\clang++.exe   -DQT_QML_DEBUG    -v -MD -MT CMakeFiles/cmTC_f653d.dir/CMakeCXXCompilerABI.cpp.obj -MF CMakeFiles\\cmTC_f653d.dir\\CMakeCXXCompilerABI.cpp.obj.d -o CMakeFiles/cmTC_f653d.dir/CMakeCXXCompilerABI.cpp.obj -c E:/qt/Tools/CMake_64/share/cmake-3.29/Modules/CMakeCXXCompilerABI.cpp]
+        ignore line: [clang version 17.0.6 (https://github.com/llvm/llvm-project.git 6009708b4367171ccdbf4b5905cb6a803753fe18)]
+        ignore line: [Target: x86_64-w64-windows-gnu]
+        ignore line: [Thread model: posix]
+        ignore line: [InstalledDir: E:/qt/Tools/llvm-mingw1706_64/bin]
+        ignore line: [ (in-process)]
+        ignore line: [ "E:/qt/Tools/llvm-mingw1706_64/bin/clang-17.exe" -cc1 -triple x86_64-w64-windows-gnu -emit-obj -mrelax-all -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name CMakeCXXCompilerABI.cpp -mrelocation-model pic -pic-level 2 -mframe-pointer=none -fmath-errno -ffp-contract=on -fno-rounding-math -mconstructor-aliases -mms-bitfields -funwind-tables=2 -fno-use-init-array -target-cpu x86-64 -tune-cpu generic -debugger-tuning=gdb -v "-fcoverage-compilation-dir=D:/IIT/Advanced OS/New folder/P2Pal/build/Desktop_Qt_6_9_0_llvm_mingw_64_bit-Debug/CMakeFiles/CMakeScratch/TryCompile-rcefgx" -resource-dir E:/qt/Tools/llvm-mingw1706_64/lib/clang/17 -dependency-file "CMakeFiles\\\\cmTC_f653d.dir\\\\CMakeCXXCompilerABI.cpp.obj.d" -MT CMakeFiles/cmTC_f653d.dir/CMakeCXXCompilerABI.cpp.obj -sys-header-deps -D QT_QML_DEBUG -internal-isystem E:/qt/Tools/llvm-mingw1706_64/x86_64-w64-mingw32/include/c++/v1 -internal-isystem E:/qt/Tools/llvm-mingw1706_64/include/c++/v1 -internal-isystem E:/qt/Tools/llvm-mingw1706_64/lib/clang/17/include -internal-isystem E:/qt/Tools/llvm-mingw1706_64/x86_64-w64-mingw32/include -internal-isystem E:/qt/Tools/llvm-mingw1706_64/x86_64-w64-mingw32/usr/include -internal-isystem E:/qt/Tools/llvm-mingw1706_64/include -fdeprecated-macro "-fdebug-compilation-dir=D:/IIT/Advanced OS/New folder/P2Pal/build/Desktop_Qt_6_9_0_llvm_mingw_64_bit-Debug/CMakeFiles/CMakeScratch/TryCompile-rcefgx" -ferror-limit 19 -fno-use-cxa-atexit -fgnuc-version=4.2.1 -fcxx-exceptions -fexceptions -exception-model=seh -faddrsig -o CMakeFiles/cmTC_f653d.dir/CMakeCXXCompilerABI.cpp.obj -x c++ E:/qt/Tools/CMake_64/share/cmake-3.29/Modules/CMakeCXXCompilerABI.cpp]
+        ignore line: [clang -cc1 version 17.0.6 based upon LLVM 17.0.6 default target x86_64-w64-mingw32]
+        ignore line: [ignoring nonexistent directory "E:/qt/Tools/llvm-mingw1706_64/x86_64-w64-mingw32/include/c++/v1"\x0d]
+        ignore line: [ignoring nonexistent directory "E:/qt/Tools/llvm-mingw1706_64/x86_64-w64-mingw32/include"\x0d]
+        ignore line: [ignoring nonexistent directory "E:/qt/Tools/llvm-mingw1706_64/x86_64-w64-mingw32/usr/include"\x0d]
+        ignore line: [#include "..." search starts here:\x0d]
+        ignore line: [#include <...> search starts here:\x0d]
+        ignore line: [ E:/qt/Tools/llvm-mingw1706_64/include/c++/v1\x0d]
+        ignore line: [ E:/qt/Tools/llvm-mingw1706_64/lib/clang/17/include\x0d]
+        ignore line: [ E:/qt/Tools/llvm-mingw1706_64/include\x0d]
+        ignore line: [End of search list.\x0d]
+        ignore line: [[2/2] C:\\WINDOWS\\system32\\cmd.exe /C "cd . && E:\\qt\\Tools\\llvm-mingw1706_64\\bin\\clang++.exe -DQT_QML_DEBUG -v -Wl -v CMakeFiles/cmTC_f653d.dir/CMakeCXXCompilerABI.cpp.obj -o cmTC_f653d.exe -Wl --out-implib libcmTC_f653d.dll.a -Wl --major-image-version 0 --minor-image-version 0   && cd ."]
+        ignore line: [clang version 17.0.6 (https://github.com/llvm/llvm-project.git 6009708b4367171ccdbf4b5905cb6a803753fe18)]
+        ignore line: [Target: x86_64-w64-windows-gnu]
+        ignore line: [Thread model: posix]
+        ignore line: [InstalledDir: E:/qt/Tools/llvm-mingw1706_64/bin]
+        link line: [ "E:/qt/Tools/llvm-mingw1706_64/bin/ld.lld" -m i386pep -Bdynamic -o cmTC_f653d.exe E:/qt/Tools/llvm-mingw1706_64/x86_64-w64-mingw32/lib/crt2.o E:/qt/Tools/llvm-mingw1706_64/x86_64-w64-mingw32/lib/crtbegin.o -LE:/qt/Tools/llvm-mingw1706_64/x86_64-w64-mingw32/lib -LE:/qt/Tools/llvm-mingw1706_64/x86_64-w64-mingw32/mingw/lib -LE:/qt/Tools/llvm-mingw1706_64/lib -LE:/qt/Tools/llvm-mingw1706_64/lib/clang/17/lib/windows -v CMakeFiles/cmTC_f653d.dir/CMakeCXXCompilerABI.cpp.obj --out-implib libcmTC_f653d.dll.a --major-image-version 0 --minor-image-version 0 -lc++ -lmingw32 E:/qt/Tools/llvm-mingw1706_64/lib/clang/17/lib/windows/libclang_rt.builtins-x86_64.a -lunwind -lmoldname -lmingwex -lmsvcrt -ladvapi32 -lshell32 -luser32 -lkernel32 -lmingw32 E:/qt/Tools/llvm-mingw1706_64/lib/clang/17/lib/windows/libclang_rt.builtins-x86_64.a -lunwind -lmoldname -lmingwex -lmsvcrt -lkernel32 E:/qt/Tools/llvm-mingw1706_64/x86_64-w64-mingw32/lib/crtend.o\x0d]
+          arg [E:/qt/Tools/llvm-mingw1706_64/bin/ld.lld] ==> ignore
+          arg [-m] ==> ignore
+          arg [i386pep] ==> ignore
+          arg [-Bdynamic] ==> search dynamic
+          arg [-o] ==> ignore
+          arg [cmTC_f653d.exe] ==> ignore
+          arg [E:/qt/Tools/llvm-mingw1706_64/x86_64-w64-mingw32/lib/crt2.o] ==> obj [E:/qt/Tools/llvm-mingw1706_64/x86_64-w64-mingw32/lib/crt2.o]
+          arg [E:/qt/Tools/llvm-mingw1706_64/x86_64-w64-mingw32/lib/crtbegin.o] ==> obj [E:/qt/Tools/llvm-mingw1706_64/x86_64-w64-mingw32/lib/crtbegin.o]
+          arg [-LE:/qt/Tools/llvm-mingw1706_64/x86_64-w64-mingw32/lib] ==> dir [E:/qt/Tools/llvm-mingw1706_64/x86_64-w64-mingw32/lib]
+          arg [-LE:/qt/Tools/llvm-mingw1706_64/x86_64-w64-mingw32/mingw/lib] ==> dir [E:/qt/Tools/llvm-mingw1706_64/x86_64-w64-mingw32/mingw/lib]
+          arg [-LE:/qt/Tools/llvm-mingw1706_64/lib] ==> dir [E:/qt/Tools/llvm-mingw1706_64/lib]
+          arg [-LE:/qt/Tools/llvm-mingw1706_64/lib/clang/17/lib/windows] ==> dir [E:/qt/Tools/llvm-mingw1706_64/lib/clang/17/lib/windows]
+          arg [-v] ==> ignore
+          arg [CMakeFiles/cmTC_f653d.dir/CMakeCXXCompilerABI.cpp.obj] ==> ignore
+          arg [--out-implib] ==> ignore
+          arg [libcmTC_f653d.dll.a] ==> ignore
+          arg [--major-image-version] ==> ignore
+          arg [0] ==> ignore
+          arg [--minor-image-version] ==> ignore
+          arg [0] ==> ignore
+          arg [-lc++] ==> lib [c++]
+          arg [-lmingw32] ==> lib [mingw32]
+          arg [E:/qt/Tools/llvm-mingw1706_64/lib/clang/17/lib/windows/libclang_rt.builtins-x86_64.a] ==> lib [E:/qt/Tools/llvm-mingw1706_64/lib/clang/17/lib/windows/libclang_rt.builtins-x86_64.a]
+          arg [-lunwind] ==> lib [unwind]
+          arg [-lmoldname] ==> lib [moldname]
+          arg [-lmingwex] ==> lib [mingwex]
+          arg [-lmsvcrt] ==> lib [msvcrt]
+          arg [-ladvapi32] ==> lib [advapi32]
+          arg [-lshell32] ==> lib [shell32]
+          arg [-luser32] ==> lib [user32]
+          arg [-lkernel32] ==> lib [kernel32]
+          arg [-lmingw32] ==> lib [mingw32]
+          arg [E:/qt/Tools/llvm-mingw1706_64/lib/clang/17/lib/windows/libclang_rt.builtins-x86_64.a] ==> lib [E:/qt/Tools/llvm-mingw1706_64/lib/clang/17/lib/windows/libclang_rt.builtins-x86_64.a]
+          arg [-lunwind] ==> lib [unwind]
+          arg [-lmoldname] ==> lib [moldname]
+          arg [-lmingwex] ==> lib [mingwex]
+          arg [-lmsvcrt] ==> lib [msvcrt]
+          arg [-lkernel32] ==> lib [kernel32]
+          arg [E:/qt/Tools/llvm-mingw1706_64/x86_64-w64-mingw32/lib/crtend.o] ==> obj [E:/qt/Tools/llvm-mingw1706_64/x86_64-w64-mingw32/lib/crtend.o]
+        linker tool for 'CXX': E:/qt/Tools/llvm-mingw1706_64/bin/ld.lld
+        remove lib [E:/qt/Tools/llvm-mingw1706_64/lib/clang/17/lib/windows/libclang_rt.builtins-x86_64.a]
+        remove lib [msvcrt]
+        remove lib [E:/qt/Tools/llvm-mingw1706_64/lib/clang/17/lib/windows/libclang_rt.builtins-x86_64.a]
+        remove lib [msvcrt]
+        collapse library dir [E:/qt/Tools/llvm-mingw1706_64/x86_64-w64-mingw32/lib] ==> [E:/qt/Tools/llvm-mingw1706_64/x86_64-w64-mingw32/lib]
+        collapse library dir [E:/qt/Tools/llvm-mingw1706_64/x86_64-w64-mingw32/mingw/lib] ==> [E:/qt/Tools/llvm-mingw1706_64/x86_64-w64-mingw32/mingw/lib]
+        collapse library dir [E:/qt/Tools/llvm-mingw1706_64/lib] ==> [E:/qt/Tools/llvm-mingw1706_64/lib]
+        collapse library dir [E:/qt/Tools/llvm-mingw1706_64/lib/clang/17/lib/windows] ==> [E:/qt/Tools/llvm-mingw1706_64/lib/clang/17/lib/windows]
+        implicit libs: [c++;mingw32;unwind;moldname;mingwex;advapi32;shell32;user32;kernel32;mingw32;unwind;moldname;mingwex;kernel32]
+        implicit objs: [E:/qt/Tools/llvm-mingw1706_64/x86_64-w64-mingw32/lib/crt2.o;E:/qt/Tools/llvm-mingw1706_64/x86_64-w64-mingw32/lib/crtbegin.o;E:/qt/Tools/llvm-mingw1706_64/x86_64-w64-mingw32/lib/crtend.o]
+        implicit dirs: [E:/qt/Tools/llvm-mingw1706_64/x86_64-w64-mingw32/lib;E:/qt/Tools/llvm-mingw1706_64/x86_64-w64-mingw32/mingw/lib;E:/qt/Tools/llvm-mingw1706_64/lib;E:/qt/Tools/llvm-mingw1706_64/lib/clang/17/lib/windows]
+        implicit fwks: []
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "E:/qt/Tools/CMake_64/share/cmake-3.29/Modules/Internal/CMakeDetermineLinkerId.cmake:40 (message)"
+      - "E:/qt/Tools/CMake_64/share/cmake-3.29/Modules/CMakeDetermineCompilerABI.cmake:210 (cmake_determine_linker_id)"
+      - "E:/qt/Tools/CMake_64/share/cmake-3.29/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:2 (project)"
+    message: |
+      Running the CXX compiler's linker: "E:/qt/Tools/llvm-mingw1706_64/bin/ld.lld" "-v"
+      LLD 17.0.6 (compatible with GNU linkers)
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "E:/qt/Tools/CMake_64/share/cmake-3.29/Modules/Internal/CheckSourceCompiles.cmake:101 (try_compile)"
+      - "E:/qt/Tools/CMake_64/share/cmake-3.29/Modules/CheckCXXSourceCompiles.cmake:52 (cmake_check_source_compiles)"
+      - "E:/qt/Tools/CMake_64/share/cmake-3.29/Modules/FindThreads.cmake:99 (CHECK_CXX_SOURCE_COMPILES)"
+      - "E:/qt/Tools/CMake_64/share/cmake-3.29/Modules/FindThreads.cmake:163 (_threads_check_libc)"
+      - "E:/qt/Tools/CMake_64/share/cmake-3.29/Modules/CMakeFindDependencyMacro.cmake:76 (find_package)"
+      - "E:/qt/6.9.0/llvm-mingw_64/lib/cmake/Qt6/QtPublicDependencyHelpers.cmake:36 (find_dependency)"
+      - "E:/qt/6.9.0/llvm-mingw_64/lib/cmake/Qt6/Qt6Dependencies.cmake:34 (_qt_internal_find_third_party_dependencies)"
+      - "E:/qt/6.9.0/llvm-mingw_64/lib/cmake/Qt6/Qt6Config.cmake:161 (include)"
+      - "CMakeLists.txt:4 (find_package)"
+    checks:
+      - "Performing Test CMAKE_HAVE_LIBC_PTHREAD"
+    directories:
+      source: "D:/IIT/Advanced OS/New folder/P2Pal/build/Desktop_Qt_6_9_0_llvm_mingw_64_bit-Debug/CMakeFiles/CMakeScratch/TryCompile-pnuttb"
+      binary: "D:/IIT/Advanced OS/New folder/P2Pal/build/Desktop_Qt_6_9_0_llvm_mingw_64_bit-Debug/CMakeFiles/CMakeScratch/TryCompile-pnuttb"
+    cmakeVariables:
+      CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS: "CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS-NOTFOUND"
+      CMAKE_CXX_FLAGS: "-DQT_QML_DEBUG"
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "E:/qt/6.9.0/llvm-mingw_64/lib/cmake/Qt6;E:/qt/6.9.0/llvm-mingw_64/lib/cmake/Qt6/3rdparty/extra-cmake-modules/find-modules;E:/qt/6.9.0/llvm-mingw_64/lib/cmake/Qt6/3rdparty/kwin"
+    buildResult:
+      variable: "CMAKE_HAVE_LIBC_PTHREAD"
+      cached: true
+      stdout: |
+        Change Dir: 'D:/IIT/Advanced OS/New folder/P2Pal/build/Desktop_Qt_6_9_0_llvm_mingw_64_bit-Debug/CMakeFiles/CMakeScratch/TryCompile-pnuttb'
+        
+        Run Build Command(s): E:/qt/Tools/Ninja/ninja.exe -v cmTC_51de0
+        [1/2] E:\\qt\\Tools\\llvm-mingw1706_64\\bin\\clang++.exe -DCMAKE_HAVE_LIBC_PTHREAD  -DQT_QML_DEBUG -MD -MT CMakeFiles/cmTC_51de0.dir/src.cxx.obj -MF CMakeFiles\\cmTC_51de0.dir\\src.cxx.obj.d -o CMakeFiles/cmTC_51de0.dir/src.cxx.obj -c "D:/IIT/Advanced OS/New folder/P2Pal/build/Desktop_Qt_6_9_0_llvm_mingw_64_bit-Debug/CMakeFiles/CMakeScratch/TryCompile-pnuttb/src.cxx"
+        [2/2] C:\\WINDOWS\\system32\\cmd.exe /C "cd . && E:\\qt\\Tools\\llvm-mingw1706_64\\bin\\clang++.exe -DQT_QML_DEBUG  CMakeFiles/cmTC_51de0.dir/src.cxx.obj -o cmTC_51de0.exe -Wl,--out-implib,libcmTC_51de0.dll.a -Wl,--major-image-version,0,--minor-image-version,0  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 && cd ."
+        \x1b[31mFAILED: \x1b[0mcmTC_51de0.exe 
+        C:\\WINDOWS\\system32\\cmd.exe /C "cd . && E:\\qt\\Tools\\llvm-mingw1706_64\\bin\\clang++.exe -DQT_QML_DEBUG  CMakeFiles/cmTC_51de0.dir/src.cxx.obj -o cmTC_51de0.exe -Wl,--out-implib,libcmTC_51de0.dll.a -Wl,--major-image-version,0,--minor-image-version,0  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 && cd ."
+        ld.lld: error: undefined symbol: pthread_create
+        >>> referenced by CMakeFiles/cmTC_51de0.dir/src.cxx.obj:(main)
+        
+        ld.lld: error: undefined symbol: pthread_detach
+        >>> referenced by CMakeFiles/cmTC_51de0.dir/src.cxx.obj:(main)
+        
+        ld.lld: error: undefined symbol: pthread_cancel
+        >>> referenced by CMakeFiles/cmTC_51de0.dir/src.cxx.obj:(main)
+        
+        ld.lld: error: undefined symbol: pthread_join
+        >>> referenced by CMakeFiles/cmTC_51de0.dir/src.cxx.obj:(main)
+        
+        ld.lld: error: undefined symbol: pthread_exit
+        >>> referenced by CMakeFiles/cmTC_51de0.dir/src.cxx.obj:(main)
+        clang-17: error: linker command failed with exit code 1 (use -v to see invocation)\x0d
+        ninja: build stopped: subcommand failed.
+        
+      exitCode: 1
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "E:/qt/Tools/CMake_64/share/cmake-3.29/Modules/FindThreads.cmake:136 (try_compile)"
+      - "E:/qt/Tools/CMake_64/share/cmake-3.29/Modules/FindThreads.cmake:169 (_threads_check_flag_pthread)"
+      - "E:/qt/Tools/CMake_64/share/cmake-3.29/Modules/CMakeFindDependencyMacro.cmake:76 (find_package)"
+      - "E:/qt/6.9.0/llvm-mingw_64/lib/cmake/Qt6/QtPublicDependencyHelpers.cmake:36 (find_dependency)"
+      - "E:/qt/6.9.0/llvm-mingw_64/lib/cmake/Qt6/Qt6Dependencies.cmake:34 (_qt_internal_find_third_party_dependencies)"
+      - "E:/qt/6.9.0/llvm-mingw_64/lib/cmake/Qt6/Qt6Config.cmake:161 (include)"
+      - "CMakeLists.txt:4 (find_package)"
+    checks:
+      - "Check if compiler accepts -pthread"
+    directories:
+      source: "D:/IIT/Advanced OS/New folder/P2Pal/build/Desktop_Qt_6_9_0_llvm_mingw_64_bit-Debug/CMakeFiles/CMakeScratch/TryCompile-v80mw8"
+      binary: "D:/IIT/Advanced OS/New folder/P2Pal/build/Desktop_Qt_6_9_0_llvm_mingw_64_bit-Debug/CMakeFiles/CMakeScratch/TryCompile-v80mw8"
+    cmakeVariables:
+      CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS: "CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS-NOTFOUND"
+      CMAKE_CXX_FLAGS: "-DQT_QML_DEBUG"
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "E:/qt/6.9.0/llvm-mingw_64/lib/cmake/Qt6;E:/qt/6.9.0/llvm-mingw_64/lib/cmake/Qt6/3rdparty/extra-cmake-modules/find-modules;E:/qt/6.9.0/llvm-mingw_64/lib/cmake/Qt6/3rdparty/kwin"
+    buildResult:
+      variable: "THREADS_HAVE_PTHREAD_ARG"
+      cached: true
+      stdout: |
+        Change Dir: 'D:/IIT/Advanced OS/New folder/P2Pal/build/Desktop_Qt_6_9_0_llvm_mingw_64_bit-Debug/CMakeFiles/CMakeScratch/TryCompile-v80mw8'
+        
+        Run Build Command(s): E:/qt/Tools/Ninja/ninja.exe -v cmTC_44ab2
+        [1/2] E:\\qt\\Tools\\llvm-mingw1706_64\\bin\\clang++.exe   -DQT_QML_DEBUG -MD -MT CMakeFiles/cmTC_44ab2.dir/CheckForPthreads.cxx.obj -MF CMakeFiles\\cmTC_44ab2.dir\\CheckForPthreads.cxx.obj.d -o CMakeFiles/cmTC_44ab2.dir/CheckForPthreads.cxx.obj -c "D:/IIT/Advanced OS/New folder/P2Pal/build/Desktop_Qt_6_9_0_llvm_mingw_64_bit-Debug/CMakeFiles/CMakeScratch/TryCompile-v80mw8/CheckForPthreads.cxx"
+        [2/2] C:\\WINDOWS\\system32\\cmd.exe /C "cd . && E:\\qt\\Tools\\llvm-mingw1706_64\\bin\\clang++.exe -DQT_QML_DEBUG  CMakeFiles/cmTC_44ab2.dir/CheckForPthreads.cxx.obj -o cmTC_44ab2.exe -Wl,--out-implib,libcmTC_44ab2.dll.a -Wl,--major-image-version,0,--minor-image-version,0  -pthread  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 && cd ."
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "E:/qt/Tools/CMake_64/share/cmake-3.29/Modules/Internal/CheckSourceCompiles.cmake:101 (try_compile)"
+      - "E:/qt/Tools/CMake_64/share/cmake-3.29/Modules/CheckCXXSourceCompiles.cmake:52 (cmake_check_source_compiles)"
+      - "E:/qt/6.9.0/llvm-mingw_64/lib/cmake/Qt6/FindWrapAtomic.cmake:36 (check_cxx_source_compiles)"
+      - "E:/qt/Tools/CMake_64/share/cmake-3.29/Modules/CMakeFindDependencyMacro.cmake:76 (find_package)"
+      - "E:/qt/6.9.0/llvm-mingw_64/lib/cmake/Qt6/QtPublicDependencyHelpers.cmake:36 (find_dependency)"
+      - "E:/qt/6.9.0/llvm-mingw_64/lib/cmake/Qt6Core/Qt6CoreDependencies.cmake:35 (_qt_internal_find_third_party_dependencies)"
+      - "E:/qt/6.9.0/llvm-mingw_64/lib/cmake/Qt6Core/Qt6CoreConfig.cmake:45 (include)"
+      - "E:/qt/6.9.0/llvm-mingw_64/lib/cmake/Qt6/Qt6Config.cmake:206 (find_package)"
+      - "CMakeLists.txt:4 (find_package)"
+    checks:
+      - "Performing Test HAVE_STDATOMIC"
+    directories:
+      source: "D:/IIT/Advanced OS/New folder/P2Pal/build/Desktop_Qt_6_9_0_llvm_mingw_64_bit-Debug/CMakeFiles/CMakeScratch/TryCompile-m9xcgp"
+      binary: "D:/IIT/Advanced OS/New folder/P2Pal/build/Desktop_Qt_6_9_0_llvm_mingw_64_bit-Debug/CMakeFiles/CMakeScratch/TryCompile-m9xcgp"
+    cmakeVariables:
+      CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS: "CMAKE_CXX_COMPILER_CLANG_SCAN_DEPS-NOTFOUND"
+      CMAKE_CXX_FLAGS: "-DQT_QML_DEBUG"
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "E:/qt/6.9.0/llvm-mingw_64/lib/cmake/Qt6;E:/qt/6.9.0/llvm-mingw_64/lib/cmake/Qt6/3rdparty/extra-cmake-modules/find-modules;E:/qt/6.9.0/llvm-mingw_64/lib/cmake/Qt6/3rdparty/kwin"
+    buildResult:
+      variable: "HAVE_STDATOMIC"
+      cached: true
+      stdout: |
+        Change Dir: 'D:/IIT/Advanced OS/New folder/P2Pal/build/Desktop_Qt_6_9_0_llvm_mingw_64_bit-Debug/CMakeFiles/CMakeScratch/TryCompile-m9xcgp'
+        
+        Run Build Command(s): E:/qt/Tools/Ninja/ninja.exe -v cmTC_1f34a
+        [1/2] E:\\qt\\Tools\\llvm-mingw1706_64\\bin\\clang++.exe -DHAVE_STDATOMIC  -DQT_QML_DEBUG -MD -MT CMakeFiles/cmTC_1f34a.dir/src.cxx.obj -MF CMakeFiles\\cmTC_1f34a.dir\\src.cxx.obj.d -o CMakeFiles/cmTC_1f34a.dir/src.cxx.obj -c "D:/IIT/Advanced OS/New folder/P2Pal/build/Desktop_Qt_6_9_0_llvm_mingw_64_bit-Debug/CMakeFiles/CMakeScratch/TryCompile-m9xcgp/src.cxx"
+        [2/2] C:\\WINDOWS\\system32\\cmd.exe /C "cd . && E:\\qt\\Tools\\llvm-mingw1706_64\\bin\\clang++.exe -DQT_QML_DEBUG  CMakeFiles/cmTC_1f34a.dir/src.cxx.obj -o cmTC_1f34a.exe -Wl,--out-implib,libcmTC_1f34a.dll.a -Wl,--major-image-version,0,--minor-image-version,0  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 && cd ."
+        
+      exitCode: 0
+...

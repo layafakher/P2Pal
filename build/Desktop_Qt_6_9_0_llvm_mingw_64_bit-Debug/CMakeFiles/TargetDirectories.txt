@@ -1,0 +1,9 @@
+D:/IIT/Advanced OS/New folder/P2Pal/build/Desktop_Qt_6_9_0_llvm_mingw_64_bit-Debug/CMakeFiles/P2Pal.dir
+D:/IIT/Advanced OS/New folder/P2Pal/build/Desktop_Qt_6_9_0_llvm_mingw_64_bit-Debug/CMakeFiles/edit_cache.dir
+D:/IIT/Advanced OS/New folder/P2Pal/build/Desktop_Qt_6_9_0_llvm_mingw_64_bit-Debug/CMakeFiles/rebuild_cache.dir
+D:/IIT/Advanced OS/New folder/P2Pal/build/Desktop_Qt_6_9_0_llvm_mingw_64_bit-Debug/CMakeFiles/list_install_components.dir
+D:/IIT/Advanced OS/New folder/P2Pal/build/Desktop_Qt_6_9_0_llvm_mingw_64_bit-Debug/CMakeFiles/install.dir
+D:/IIT/Advanced OS/New folder/P2Pal/build/Desktop_Qt_6_9_0_llvm_mingw_64_bit-Debug/CMakeFiles/install/local.dir
+D:/IIT/Advanced OS/New folder/P2Pal/build/Desktop_Qt_6_9_0_llvm_mingw_64_bit-Debug/CMakeFiles/install/strip.dir
+D:/IIT/Advanced OS/New folder/P2Pal/build/Desktop_Qt_6_9_0_llvm_mingw_64_bit-Debug/CMakeFiles/P2Pal_autogen_timestamp_deps.dir
+D:/IIT/Advanced OS/New folder/P2Pal/build/Desktop_Qt_6_9_0_llvm_mingw_64_bit-Debug/CMakeFiles/P2Pal_autogen.dir

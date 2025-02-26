@@ -1,0 +1,21 @@
+# ninja log v6
+42	1748	7622219706803324	P2Pal_autogen/timestamp	abc2ab7f2778e893
+42	1748	7622219706803324	P2Pal_autogen/mocs_compilation.cpp	abc2ab7f2778e893
+5727	8922	7622219749621417	P2Pal.exe	92816e74e79afb3
+1749	5332	7622219709842421	CMakeFiles/P2Pal.dir/P2Pal_autogen/mocs_compilation.cpp.obj	ecfce34f5f7a7e8a
+42	1748	7622219706803324	D:/IIT/Advanced OS/New folder/P2Pal/build/Desktop_Qt_6_9_0_llvm_mingw_64_bit-Debug/P2Pal_autogen/timestamp	abc2ab7f2778e893
+1758	5727	7622219709923756	CMakeFiles/P2Pal.dir/mainwindow.cpp.obj	636ebac54b3e60b8
+1753	5100	7622219709883771	CMakeFiles/P2Pal.dir/main.cpp.obj	f3f3e9e9d970a27c
+42	1748	7622219706803324	D:/IIT/Advanced OS/New folder/P2Pal/build/Desktop_Qt_6_9_0_llvm_mingw_64_bit-Debug/P2Pal_autogen/mocs_compilation.cpp	abc2ab7f2778e893
+3288	9762	7622218239201770	CMakeFiles/P2Pal.dir/vectorclock.cpp.obj	d61dd84c54954b6c
+3284	10499	7622218239161600	CMakeFiles/P2Pal.dir/networking.cpp.obj	823429bcfd3bbf82
+78	2556	7622298521720706	P2Pal_autogen/timestamp	abc2ab7f2778e893
+78	2556	7622298521720706	P2Pal_autogen/mocs_compilation.cpp	abc2ab7f2778e893
+78	2556	7622298521720706	D:/IIT/Advanced OS/New folder/P2Pal/build/Desktop_Qt_6_9_0_llvm_mingw_64_bit-Debug/P2Pal_autogen/timestamp	abc2ab7f2778e893
+78	2556	7622298521720706	D:/IIT/Advanced OS/New folder/P2Pal/build/Desktop_Qt_6_9_0_llvm_mingw_64_bit-Debug/P2Pal_autogen/mocs_compilation.cpp	abc2ab7f2778e893
+2594	8427	7622298524753100	CMakeFiles/P2Pal.dir/vectorclock.cpp.obj	d61dd84c54954b6c
+2568	10141	7622298524495634	CMakeFiles/P2Pal.dir/main.cpp.obj	f3f3e9e9d970a27c
+2559	10465	7622298524419984	CMakeFiles/P2Pal.dir/P2Pal_autogen/mocs_compilation.cpp.obj	ecfce34f5f7a7e8a
+2576	11579	7622298524593655	CMakeFiles/P2Pal.dir/mainwindow.cpp.obj	636ebac54b3e60b8
+2585	11819	7622298524678656	CMakeFiles/P2Pal.dir/networking.cpp.obj	823429bcfd3bbf82
+11820	12321	7622298616956143	P2Pal.exe	92816e74e79afb3
