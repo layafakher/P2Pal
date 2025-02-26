@@ -178,6 +178,13 @@ void Networking::sendAcknowledgment(const QHostAddress &receiver, int sequenceNu
     udpSocket->writeDatagram(ackDatagram, receiver, 45454);
 }
 
-// void Networking::removeAcknowledgedMessage(int sequenceNumber) {
+void Networking::removeAcknowledgedMessage(int sequenceNumber) {
 
-// }
+    if (messageBuffer.contains(sequenceNumber)) {
+        qDebug() << "Removing acknowledged message with SequenceNumber:" << sequenceNumber;
+        messageBuffer.remove(sequenceNumber);
+    } else {
+        qDebug() << "Attempted to remove non-existent message with SequenceNumber:" << sequenceNumber;
+    }
+}
+
