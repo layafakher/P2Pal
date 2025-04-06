@@ -2,133 +2,31 @@
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QDebug>
+#include <QHostInfo>
+
 
 Networking::Networking(QObject *parent) : QObject(parent) {
     udpSocket = new QUdpSocket(this);
-
-    bool bound = udpSocket->bind(QHostAddress::Any, 0);
-
-    if (!bound) {
-        qDebug() << "Failed to bind UDP socket:" << udpSocket->errorString();
-    } else {
-        qDebug() << "UDP socket bound to port:" << udpSocket->localPort();
-    }
+    udpSocket->bind(QHostAddress::Any, 0);
 
     connect(udpSocket, &QUdpSocket::readyRead, this, &Networking::handleIncomingDatagrams);
+
+    //send initial route rumor
+    QTimer::singleShot(5000, this, &Networking::sendRouteRumor);
 }
 
-int Networking::getNextSequenceNumber() {
-    return sequenceNumber++;
+void Networking::handleIncomingDatagrams() {
+    processIncomingDatagrams(nullptr);
 }
-
+QSet<QHostAddress> Networking::getPeers() const {
+    return peers;
+}
 void Networking::sendDatagram(const QByteArray &datagram, int sequenceNumber) {
     messageBuffer[sequenceNumber] = datagram;
     for (const auto &peer : peers) {
         udpSocket->writeDatagram(datagram, peer, 45454);
     }
 }
-
-
-void Networking::handleIncomingDatagrams() {
-    processIncomingDatagrams(nullptr);
-}
-void Networking::processIncomingDatagrams(QTextEdit *chatLog) {
-    while (udpSocket->hasPendingDatagrams()) {
-        QByteArray datagram;
-        datagram.resize(udpSocket->pendingDatagramSize());
-        QHostAddress sender;
-        quint16 senderPort;
-        udpSocket->readDatagram(datagram.data(), datagram.size(), &sender, &senderPort);
-
-        qDebug() << "Received datagram from:" << sender.toString()
-                 << "| Port: " << senderPort
-                 << "| Raw Data:" << datagram;
-
-        QJsonDocument doc = QJsonDocument::fromJson(datagram);
-        if (doc.isNull()) {
-            qDebug() << "Error parsing JSON!";
-            continue;
-        }
-
-        QVariantMap messageMap = doc.object().toVariantMap();
-        QString type = messageMap["Type"].toString();
-
-        qDebug() << "Message Type: " << type;
-
-
-        if (type == "DISCOVERY") {
-            qDebug() << "Peer discovery request received from: " << sender.toString();
-
-            if (!peers.contains(sender)) {
-                peers.insert(sender);
-                qDebug() << "Added peer: " << sender.toString();
-            }
-
-
-            QVariantMap responseMap;
-            responseMap["Type"] = "DISCOVERY_RESPONSE";
-            QByteArray responseMessage = QJsonDocument(QJsonObject::fromVariantMap(responseMap)).toJson();
-            udpSocket->writeDatagram(responseMessage, sender, senderPort);
-            qDebug() << "Sent DISCOVERY_RESPONSE to " << sender.toString();
-        }
-        else if (type == "DISCOVERY_RESPONSE") {
-            qDebug() << "Discovery response received from: " << sender.toString();
-
-            if (!peers.contains(sender)) {
-                peers.insert(sender);
-                qDebug() << "Added new peer from response: " << sender.toString();
-            }
-        }
-
-
-        else if (type == "CHAT") {
-            QString origin = messageMap["Origin"].toString();
-            int seqNum = messageMap["SequenceNumber"].toInt();
-
-            if (!peerMessages[origin].contains(seqNum)) {
-                peerMessages[origin].insert(seqNum);
-                chatLog->append(origin + ": " + messageMap["ChatText"].toString());
-            }
-
-            sendAcknowledgment(sender, seqNum);
-        }
-
-
-        else if (type == "ACK") {
-            int ackNum = messageMap["SequenceNumber"].toInt();
-            removeAcknowledgedMessage(ackNum);
-        }
-    }
-}
-void Networking::runAntiEntropy() {
-    qDebug() << "Running Anti-Entropy Check...";
-
-    QMap<QString, int> currentClock = vectorClock.getClock();
-
-    for (const auto &peer : peers) {
-        for (auto it = currentClock.begin(); it != currentClock.end(); ++it) {
-            QString origin = it.key();
-            int lastSeenSeq = it.value();
-
-            QVariantMap requestMap;
-            requestMap["Type"] = "SYNC_REQUEST";
-            requestMap["Origin"] = origin;
-            requestMap["LastSeen"] = lastSeenSeq;
-
-            QByteArray syncMessage = QJsonDocument(QJsonObject::fromVariantMap(requestMap)).toJson();
-            udpSocket->writeDatagram(syncMessage, peer, 45454);
-
-            qDebug() << "Sent SYNC_REQUEST to " << peer.toString()
-                     << " for Origin: " << origin
-                     << " LastSeenSeq: " << lastSeenSeq;
-        }
-    }
-}
-
-
-
-
-
 void Networking::broadcastDiscovery() {
     qDebug() << "Broadcasting peer discovery...";
 
@@ -137,54 +35,209 @@ void Networking::broadcastDiscovery() {
 
     QByteArray discoveryMessage = QJsonDocument(QJsonObject::fromVariantMap(discoveryMap)).toJson();
 
-
-    qint64 bytesSent = udpSocket->writeDatagram(discoveryMessage, QHostAddress::Broadcast, 45454);
-
-    if (bytesSent == -1) {
-        qDebug() << "Error broadcasting discovery: " << udpSocket->errorString();
-    } else {
-        qDebug() << "Discovery broadcast sent, bytes: " << bytesSent;
-    }
+    udpSocket->writeDatagram(discoveryMessage, QHostAddress::Broadcast, 45454);
 }
-
-
-
 void Networking::runGossip() {
-    qDebug() << "Running Gossip Protocol...";
+    qDebug() << "running Gossip Protocol...";
 
     for (const auto &peer : peers) {
         for (auto it = messageBuffer.begin(); it != messageBuffer.end(); ++it) {
             QByteArray gossipMessage = it.value();
-
-            qint64 bytesSent = udpSocket->writeDatagram(gossipMessage, peer, 45454);
-
-            if (bytesSent == -1) {
-                qDebug() << "Gossip message send error:" << udpSocket->errorString();
-            } else {
-                qDebug() << "Gossip message resent to " << peer.toString() << ", bytes: " << bytesSent;
-            }
+            udpSocket->writeDatagram(gossipMessage, peer, 45454);
+            qDebug() << "📡Gossip message sent to " << peer.toString();
         }
     }
 }
 
+void Networking::forwardMessage(const QByteArray &datagram, const QHostAddress &sender) {
+    QJsonDocument doc = QJsonDocument::fromJson(datagram);
+    QVariantMap messageMap = doc.object().toVariantMap();
 
-
-void Networking::sendAcknowledgment(const QHostAddress &receiver, int sequenceNumber) {
-    QVariantMap ackMap;
-    ackMap["Type"] = "ACK";
-    ackMap["SequenceNumber"] = sequenceNumber;
-
-    QByteArray ackDatagram = QJsonDocument(QJsonObject::fromVariantMap(ackMap)).toJson();
-    udpSocket->writeDatagram(ackDatagram, receiver, 45454);
+    if (messageMap.contains("HopLimit")) {
+        int hopLimit = messageMap["HopLimit"].toInt();
+        if (hopLimit > 0) {
+            messageMap["HopLimit"] = hopLimit - 1;
+            QByteArray newDatagram = QJsonDocument(QJsonObject::fromVariantMap(messageMap)).toJson();
+            for (const auto &peer : peers) {
+                if (peer != sender) {
+                    udpSocket->writeDatagram(newDatagram, peer, 45454);
+                }
+            }
+        } else {
+            qDebug() << "message discarded: Hop limit reached.";
+        }
+    }
 }
 
-void Networking::removeAcknowledgedMessage(int sequenceNumber) {
+void Networking::setNoForwardMode(bool mode) {
+    noforwardMode = mode;
+    qDebug() << "No-Forward Mode set to:" << mode;
+}
 
-    if (messageBuffer.contains(sequenceNumber)) {
-        qDebug() << "Removing acknowledged message with SequenceNumber:" << sequenceNumber;
-        messageBuffer.remove(sequenceNumber);
-    } else {
-        qDebug() << "Attempted to remove non-existent message with SequenceNumber:" << sequenceNumber;
+
+
+void Networking::processIncomingDatagrams(QTextEdit *chatLog) {
+    while (udpSocket->hasPendingDatagrams()) {
+        QByteArray datagram;
+        QHostAddress sender;
+        quint16 senderPort;
+        datagram.resize(udpSocket->pendingDatagramSize());
+        udpSocket->readDatagram(datagram.data(), datagram.size(), &sender, &senderPort);
+
+        qDebug() << "Received datagram from:" << sender.toString()
+                 << "| Port: " << senderPort
+                 << "| Data: " << datagram;
+
+        QJsonDocument doc = QJsonDocument::fromJson(datagram);
+        if (doc.isNull()) {
+            qDebug() << "❌ Error parsing JSON!";
+            continue;
+        }
+
+
+        QVariantMap messageMap = doc.object().toVariantMap();
+        QString type = messageMap["Type"].toString();
+        qDebug() << "Message Type: " << type;
+
+        if (type == "CHAT") {
+            QString origin = messageMap["Origin"].toString();
+            int seqNum = messageMap["SequenceNumber"].toInt();
+            QString chatText = messageMap["ChatText"].toString();
+
+            qDebug() << " Chat Message Received: " << chatText
+                     << "| Origin: " << origin
+                     << "| SeqNum: " << seqNum;
+
+            if (vectorClock.isNewMessage(origin, seqNum)) {
+                vectorClock.updateClock(origin, seqNum);
+                if (chatLog) chatLog->append(origin + ": " + chatText);
+                qDebug() << "message displayed in chat: " << chatText;
+            } else {
+                qDebug() << "duplicate message ignored.";
+            }
+
+            updateRoutingTable(origin, sender, senderPort, messageMap);
+            forwardMessage(datagram, sender);
+
+        } else if (type == "DISCOVERY") {
+            if (!peers.contains(sender)) {
+                peers.insert(sender);
+                qDebug() << "🟢 New peer discovered: " << sender.toString();
+            }
+
+
+            QVariantMap response;
+            response["Type"] = "DISCOVERY_RESPONSE";
+            QByteArray responseData = QJsonDocument(QJsonObject::fromVariantMap(response)).toJson();
+            udpSocket->writeDatagram(responseData, sender, senderPort);
+            qDebug() << "Sent DISCOVERY_RESPONSE to " << sender.toString();
+
+        } else if (type == "DISCOVERY_RESPONSE") {
+            if (!peers.contains(sender)) {
+                peers.insert(sender);
+                qDebug() << "added new peer from response: " << sender.toString();
+            }
+
+        } else if (type == "PRIVATE_MESSAGE") {
+            QString dest = messageMap["Dest"].toString();
+            QString privateMessage = messageMap["ChatText"].toString();
+            int hopLimit = messageMap["HopLimit"].toInt();
+
+            if (dest == QHostInfo::localHostName()) {
+                if (chatLog) chatLog->append("🔒 Private: " + privateMessage);
+                qDebug() << "received private message: " << privateMessage;
+            } else if (hopLimit > 0) {
+                messageMap["HopLimit"] = hopLimit - 1;
+                sendDatagram(QJsonDocument(QJsonObject::fromVariantMap(messageMap)).toJson(), sequenceNumber++);
+                qDebug() << "forwarding private message to " << dest << " with hop limit: " << hopLimit;
+            }
+
+        } else if (type == "ROUTE_RUMOR") {
+            QString origin = messageMap["Origin"].toString();
+            updateRoutingTable(origin, sender, senderPort, messageMap);
+            qDebug() << "updated route for: " << origin << " via " << sender.toString();
+        }
+        type = messageMap["Type"].toString();
+
+
+        if (type == "FILE_REQUEST") {
+            emit fileRequestReceived(messageMap);
+        } else if (type == "BLOCK_REPLY") {
+            emit blockReplyReceived(messageMap);
+        }
+        if (type == "SEARCH_RESPONSE") {
+            emit searchReplyReceived(messageMap);
+        }
+
+
     }
+}
+
+
+
+void Networking::sendRouteRumor() {
+    QVariantMap msg;
+    msg["Type"] = "ROUTE_RUMOR";
+    msg["Origin"] = QHostInfo::localHostName();
+    msg["SeqNo"] = vectorClock.getClock()[msg["Origin"].toString()] + 1;
+    msg["LastIP"] = udpSocket->localAddress().toString();
+    msg["LastPort"] = udpSocket->localPort();
+
+    QByteArray datagram = QJsonDocument(QJsonObject::fromVariantMap(msg)).toJson();
+    for (const auto &peer : peers) {
+        udpSocket->writeDatagram(datagram, peer, 45454);
+    }
+    QTimer::singleShot(60000, this, &Networking::sendRouteRumor);
+}
+
+void Networking::addPeer(const QHostAddress &peer) {
+    if (!peers.contains(peer)) {
+        peers.insert(peer);
+        qDebug() << "added new peer manually: " << peer.toString();
+    }
+}
+
+
+void Networking::updateRoutingTable(const QString &origin, const QHostAddress &sender, quint16 senderPort, const QVariantMap &message) {
+    if (!routingTable.contains(origin) || vectorClock.getClock()[origin] < message["SeqNo"].toInt()) {
+        routingTable[origin] = {sender, senderPort};
+
+        if (message.contains("LastIP") && message.contains("LastPort")) {
+            QHostAddress publicIP(message["LastIP"].toString());
+            quint16 publicPort = message["LastPort"].toUInt();
+            routingTable[origin] = {publicIP, publicPort};  //storinng public NAT address
+        }
+
+        qDebug() << "updated route for:" << origin
+                 << "local IP:" << sender.toString()
+                 << "public IP:" << routingTable[origin].first.toString()
+                 << "port:" << routingTable[origin].second;
+    }
+}
+
+
+int Networking::getNextSequenceNumber() {
+    return sequenceNumber++;
+}
+
+
+void Networking::sendPrivateMessage(const QString &dest, const QString &message) {
+    if (!routingTable.contains(dest)) {
+        qDebug() << "No route to destination!";
+        return;
+    }
+
+    QVariantMap msg;
+    msg["Type"] = "PRIVATE_MESSAGE";
+    msg["Origin"] = QHostInfo::localHostName();
+    msg["Dest"] = dest;
+    msg["ChatText"] = message;
+    msg["HopLimit"] = 10;
+
+    QHostAddress targetIP = routingTable[dest].first;
+    quint16 targetPort = routingTable[dest].second;
+
+    QByteArray datagram = QJsonDocument(QJsonObject::fromVariantMap(msg)).toJson();
+    udpSocket->writeDatagram(datagram, targetIP, targetPort);
 }
 
